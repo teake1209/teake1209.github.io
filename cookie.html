@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var ls_count = localStorage.getItem("save_result");
+      if (ls_count){
+        result = parseInt(ls_count);
+      }else{
+        resultt = 0;
+      }
+
+      setInterval(save_action,5000);
+      function save_action() {
+        localStorage.setItem("save_result",result);
+      }
+      cookie_count = 0;
+      function cookieClick(num) {
+        cookie_count = cookie_count + num;
+        var elem1 = document.getElementById("result")
+        elem1.textContent = cookie_count;
+      }
+
+      function grandma() {
+        if (cookie_count >= 1000) {
+          cookie_count = cookie_count - 10;
+          setInterval(cookieClick,1000,8);
+      }
+    }
+    </script>
+    クッキー<p id="result"></p>枚<br>
+    <img onclick ="cookieClick(100);" src="cookie.jpg">
+    <ul>
+      <li>カーソル</li>
+      <li onclick="grandma();">グランマ</li>
+      <li>ファーム</li>
+      <li>マイン</li>
+      <li></li>
+    </ul>
+    </body>
+</html>
